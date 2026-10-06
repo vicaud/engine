@@ -541,9 +541,11 @@ if(DEFINED GLTF_PATH)
         endif()
     endforeach()
     add_library(vibrance_fastgltf STATIC
-        "${GLTF_PATH}/src/fastgltf.cpp"
-        "${GLTF_PATH}/src/base64.cpp"
-        "${GLTF_PATH}/src/io.cpp")
+    "${GLTF_PATH}/src/fastgltf.cpp"
+    "${GLTF_PATH}/src/base64.cpp"
+    "${GLTF_PATH}/src/io.cpp"
+    "engine/src/stopwatch.cpp"
+)
     add_library(fastgltf::fastgltf ALIAS vibrance_fastgltf)
     target_include_directories(vibrance_fastgltf PUBLIC "${GLTF_PATH}/include")
     target_compile_features(vibrance_fastgltf PUBLIC cxx_std_17)
